@@ -23,10 +23,15 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 // Configurar rutas
+
+app.get('/', (req, res) => {
+  res.send('¡Bienvenido al backend!');
+});
+
 app.use('/api/constructores', constructorRoutes);
 app.use('/api/obras-publicas', obraPublicaRoutes);
 app.use('/api/presupuestos', presupuestoRoutes);
 app.use('/api/fechas-inicio', fechaInicioRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
